@@ -9,7 +9,7 @@ import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:getflutter/getflutter.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:http/http.dart';
 import 'package:package_info/package_info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -565,7 +565,7 @@ class _CodeFormState extends State<CodeForm> {
                     if (form.validate()) {
                       form.save();
 
-                      Scaffold.of(context).showSnackBar(
+                      ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text('Run USSD Code\n$code'),
                         ),
@@ -597,7 +597,7 @@ class _CodeFormState extends State<CodeForm> {
               return TextFormField(
                 controller: phoneNumberController,
                 maxLength: 8,
-                autovalidate: true,
+                autovalidateMode: AutovalidateMode.always,
                 decoration: InputDecoration(
                   labelText: field.name.toUpperCase(),
                   suffixIcon: FlatButton(
@@ -651,7 +651,7 @@ class _CodeFormState extends State<CodeForm> {
             // INPUT MONEY
             case 'money':
               return TextFormField(
-                  autovalidate: true,
+                  autovalidateMode: AutovalidateMode.always,
                   decoration: InputDecoration(
                     labelText: field.name.toUpperCase(),
                     prefixIcon: Icon(
@@ -701,7 +701,7 @@ class _CodeFormState extends State<CodeForm> {
               return TextFormField(
                 obscureText: true,
                 maxLength: 4,
-                autovalidate: true,
+                autovalidateMode: AutovalidateMode.always,
                 decoration: InputDecoration(
                   labelText: field.name.toUpperCase(),
                   prefixIcon: Icon(
@@ -743,7 +743,7 @@ class _CodeFormState extends State<CodeForm> {
             case 'card_number':
               return TextFormField(
                 maxLength: 16,
-                autovalidate: true,
+                autovalidateMode: AutovalidateMode.always,
                 decoration: InputDecoration(
                   labelText: field.name.toUpperCase(),
                   prefixIcon: Icon(

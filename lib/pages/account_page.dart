@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:getflutter/getflutter.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:todo/models/user.dart';
 import 'package:nauta_api/nauta_api.dart';
@@ -105,8 +105,7 @@ class _AccountPageState extends State<AccountPage> {
                         // El parametro autovalidate queda obsoleto y no debe ser usado
                         // Se debe sustituir por la sgte linea, pero es necesario actualizar
                         // primero el sdk de Flutter
-                        // autovalidateMode: AutovalidateMode.always,
-                        autovalidate: true,
+                        autovalidateMode: AutovalidateMode.always,
                         decoration: InputDecoration(
                           labelText: 'Usuario',
                           icon: IconButton(
@@ -142,8 +141,7 @@ class _AccountPageState extends State<AccountPage> {
                         // El parametro autovalidate queda obsoleto y no debe ser usado
                         // Se debe sustituir por la sgte linea, pero es necesario actualizar
                         // primero el sdk de Flutter
-                        // autovalidateMode: AutovalidateMode.always,
-                        autovalidate: true,
+                        autovalidateMode: AutovalidateMode.always,
                         decoration: InputDecoration(
                           labelText: 'Contraseña',
                           icon: IconButton(
@@ -356,7 +354,7 @@ class _AccountPageState extends State<AccountPage> {
       );
     } on NautaException catch (e) {
       await pr.hide();
-      Scaffold.of(ctx).showSnackBar(
+      ScaffoldMessenger.of(ctx).showSnackBar(
         SnackBar(
           backgroundColor: Colors.red,
           content: Text(
@@ -383,7 +381,7 @@ class _AccountPageState extends State<AccountPage> {
 
       await pr.hide();
 
-      Scaffold.of(ctx).showSnackBar(
+      ScaffoldMessenger.of(ctx).showSnackBar(
         SnackBar(
           duration: Duration(seconds: 3),
           backgroundColor: Theme.of(context).focusColor,
@@ -399,7 +397,7 @@ class _AccountPageState extends State<AccountPage> {
       );
     } on NautaException catch (e) {
       await pr.hide();
-      Scaffold.of(ctx).showSnackBar(
+      ScaffoldMessenger.of(ctx).showSnackBar(
         SnackBar(
           backgroundColor: Colors.red,
           content: Text(

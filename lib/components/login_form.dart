@@ -65,8 +65,7 @@ class _LoginFormState extends State<LoginForm> {
               // El parametro autovalidate queda obsoleto y no debe ser usado
               // Se debe sustituir por la sgte linea, pero es necesario actualizar
               // primero el sdk de Flutter
-              // autovalidateMode: AutovalidateMode.always,
-              autovalidate: true,
+              autovalidateMode: AutovalidateMode.always,
               decoration: InputDecoration(
                 labelText: 'Usuario',
                 icon: IconButton(
@@ -104,8 +103,7 @@ class _LoginFormState extends State<LoginForm> {
               // El parametro autovalidate queda obsoleto y no debe ser usado
               // Se debe sustituir por la sgte linea, pero es necesario actualizar
               // primero el sdk de Flutter
-              // autovalidateMode: AutovalidateMode.always,
-              autovalidate: true,
+              autovalidateMode: AutovalidateMode.always,
               decoration: InputDecoration(
                 labelText: 'Contraseña',
                 icon: IconButton(
@@ -224,7 +222,7 @@ class _LoginFormState extends State<LoginForm> {
         );
       } on NautaException catch (e) {
         await pr.hide();
-        Scaffold.of(context).showSnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             backgroundColor: Colors.red,
             content: Text(
@@ -271,7 +269,7 @@ class _LoginFormState extends State<LoginForm> {
 
         await pr.hide();
 
-        Scaffold.of(context).showSnackBar(SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           duration: Duration(seconds: 10),
           backgroundColor: Theme.of(context).focusColor,
           content: Text(
@@ -285,7 +283,7 @@ class _LoginFormState extends State<LoginForm> {
         ));
       } on NautaException catch (e) {
         await pr.hide();
-        Scaffold.of(context).showSnackBar(SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           backgroundColor: Colors.red,
           content: Text(
             e.message,

@@ -16,7 +16,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final ContactPicker _contactPicker = new ContactPicker();
-  Contact _contact;
+  late Contact _contact;
 
   @override
   Widget build(BuildContext context) => new MaterialApp(

@@ -28,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
 
   IconData networkIcon;
 
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>(); //ScaffoldMessengerState
 
   var subscription;
 

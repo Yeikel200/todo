@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo/models/user.dart';
-import 'package:getflutter/getflutter.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:nauta_api/nauta_api.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:progress_dialog/progress_dialog.dart';
@@ -107,7 +107,7 @@ class _LastAccountState extends State<LastAccount> {
 
       await pr.hide();
 
-      Scaffold.of(ctx).showSnackBar(
+      ScaffoldMessenger.of(ctx).showSnackBar(
         SnackBar(
           duration: Duration(seconds: 3),
           backgroundColor: Theme.of(context).focusColor,
@@ -123,7 +123,7 @@ class _LastAccountState extends State<LastAccount> {
       );
     } on NautaException catch (e) {
       await pr.hide();
-      Scaffold.of(ctx).showSnackBar(
+      ScaffoldMessenger.of(ctx).showSnackBar(
         SnackBar(
           backgroundColor: Colors.red,
           content: Text(
@@ -157,7 +157,7 @@ class _LastAccountState extends State<LastAccount> {
       );
     } on NautaException catch (e) {
       await pr.hide();
-      Scaffold.of(ctx).showSnackBar(
+      ScaffoldMessenger.of(ctx).showSnackBar(
         SnackBar(
           backgroundColor: Colors.red,
           content: Text(

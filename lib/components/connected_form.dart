@@ -202,7 +202,7 @@ class _ConnectedFormState extends State<ConnectedForm> {
             );
           } on NautaLogoutException catch (e) {
             await pr.hide();
-            Scaffold.of(context).showSnackBar(SnackBar(
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               backgroundColor: Colors.red,
               content: Text(
                 e.message,

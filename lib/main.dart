@@ -7,9 +7,16 @@ import 'package:todo/themes/app_theme.dart';
 import 'package:todo/pages/home_page.dart';
 import 'package:todo/services/AppStateNotifier.dart';
 
+import 'dart:io' show Platform;
+
+import 'pages/login_page.dart';
+
 void main() async {
+  
   WidgetsFlutterBinding.ensureInitialized();
-  await FlutterDownloader.initialize(debug: true);
+  if (!Platform.isWindows) {
+    await FlutterDownloader.initialize(debug: true);
+  }
   runApp(
     ChangeNotifierProvider<AppStateNotifier>(
       create: (_) => AppStateNotifier(),
@@ -30,7 +37,7 @@ class App extends StatelessWidget {
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: appState.isDarkModeOn ? ThemeMode.dark : ThemeMode.light,
-          home: HomePage(title: 'TODO'),
+          home: Platform.isWindows ? LoginPage(): HomePage(title: 'TODO'),
           localizationsDelegates: GlobalMaterialLocalizations.delegates,
           supportedLocales: [const Locale('es')],
         );
